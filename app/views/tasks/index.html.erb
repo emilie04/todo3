@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>任务列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>任务</th>
+      <th>标注</th>
+      <th>是否完成</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.remark %></td>
+        <td><%= task.is_finished %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
